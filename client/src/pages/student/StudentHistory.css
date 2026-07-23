@@ -1,0 +1,51 @@
+.history-page {
+    width: 90%;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.history-page h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.history-page h2 {
+    margin: 30px 0 20px;
+    color: #444;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.empty-msg {
+    color: #888;
+    font-style: italic;
+}
+
+.history-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #2563eb;
+    transition: transform 0.2s;
+}
+
+.history-card:hover {
+    transform: translateY(-2px);
+}
+
+.history-card h3 {
+    color: #2563eb;
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+.history-card p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.history-card strong {
+    color: #333;
+}   

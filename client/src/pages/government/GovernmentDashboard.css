@@ -1,0 +1,647 @@
+.gov-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 28px;
+  color: #19334a;
+  background: #f3f7fa;
+}
+
+/* Header & Layout */
+.gov-header,
+.gov-brand,
+.gov-header-actions,
+.filter-bar,
+.panel-title,
+.ai-insight {
+  display: flex;
+  align-items: center;
+}
+
+.gov-header {
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(120deg, #0c3c5c, #12677b);
+  box-shadow: 0 12px 25px rgba(24, 64, 85, 0.17);
+}
+
+/* Branding */
+.gov-brand {
+  gap: 12px;
+}
+
+.gov-brand > span,
+.login-emblem {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+  color: #0c566a;
+  background: #f2c65e;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.gov-brand p,
+.gov-brand h1 {
+  margin: 0;
+}
+
+.gov-brand p {
+  color: #b9dce5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gov-brand h1 {
+  margin-top: 4px;
+  font-size: 21px;
+}
+
+/* Header Actions */
+.gov-header-actions {
+  gap: 15px;
+}
+
+.secure-badge {
+  color: #c3f3d5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gov-header button,
+.ai-insight button,
+.reset-filters {
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.gov-header button {
+  color: #104961;
+  background: #fff;
+}
+
+/* Intro Section */
+.gov-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  padding: 24px 4px 17px;
+}
+
+.gov-intro h2 {
+  margin: 3px 0 7px;
+  color: #153a53;
+  font-size: 23px;
+}
+
+.gov-intro > div > p:last-child,
+.last-updated {
+  margin: 0;
+  color: #648095;
+  font-size: 13px;
+}
+
+/* Typography Utilities */
+.eyebrow {
+  margin: 0;
+  color: #187184;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Filter Bar */
+.filter-bar {
+  flex-wrap: wrap;
+  gap: 11px;
+  padding: 14px;
+  border: 1px solid #d9e5eb;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.filter-bar label {
+  display: grid;
+  gap: 5px;
+  flex: 1 1 155px;
+  color: #537086;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.filter-bar select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #cbdbe4;
+  border-radius: 7px;
+  color: #23465e;
+  background: #fbfdff;
+  font: inherit;
+  font-size: 13px;
+}
+
+.reset-filters {
+  align-self: end;
+  color: #0d6174;
+  background: #dff1f3;
+}
+
+/* Main Grid & Cards */
+.gov-main-grid {
+  display: grid;
+  grid-template-columns: minmax(340px, 1.08fr) minmax(360px, 1fr);
+  gap: 17px;
+  margin-top: 17px;
+}
+
+.india-map-card,
+.chart-card,
+.ai-insight,
+.alerts-panel {
+  padding: 18px;
+  border: 1px solid #d9e5eb;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgba(27, 67, 88, 0.05);
+}
+
+/* Map Styles */
+.panel-title {
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel-title p,
+.panel-title h2 {
+  margin: 0;
+}
+
+.panel-title p {
+  color: #668197;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.panel-title h2 {
+  margin-top: 4px;
+  color: #193d57;
+  font-size: 18px;
+}
+
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #73889a;
+  font-size: 11px;
+}
+
+.map-legend i {
+  width: 62px;
+  height: 7px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #72b8a5, #f4ae4d, #a51d3d);
+}
+
+.india-map {
+  display: block;
+  width: 100%;
+  max-height: 385px;
+  margin: 3px auto 0;
+}
+
+.map-tile {
+  cursor: pointer;
+  outline: none;
+}
+
+.map-tile:focus rect {
+  stroke: #112f47;
+  stroke-width: 3px;
+}
+
+.map-tile text {
+  pointer-events: none;
+  fill: #183549;
+  font-size: 6px;
+  font-weight: 800;
+}
+
+.map-caption {
+  margin: 0;
+  color: #75899a;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Summary Grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.summary-card {
+  min-height: 84px;
+  padding: 14px;
+  border-radius: 11px;
+  background: #f7fbfd;
+  border-left: 4px solid #2a8495;
+}
+
+.summary-card span {
+  display: block;
+  color: #617d92;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-card strong {
+  display: block;
+  margin-top: 8px;
+  color: #153d58;
+  font-size: 22px;
+  line-height: 1.08;
+  word-break: break-word;
+}
+
+.summary-card.disease strong,
+.summary-card.district strong {
+  font-size: 15px;
+}
+
+/* Summary Card Variants */
+.summary-card.week {
+  border-color: #dd9a33;
+}
+.summary-card.month {
+  border-color: #a7588b;
+}
+.summary-card.year {
+  border-color: #397db9;
+}
+.summary-card.disease {
+  border-color: #ca5e48;
+}
+.summary-card.district {
+  border-color: #579c78;
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 17px;
+}
+
+.chart-card h3 {
+  margin: 0 0 16px;
+  color: #294960;
+  font-size: 15px;
+}
+
+/* Bar Chart */
+.bar-chart {
+  display: grid;
+  gap: 11px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: minmax(65px, 0.75fr) minmax(50px, 1.3fr) 29px;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-row > span {
+  overflow: hidden;
+  color: #57758b;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-row b {
+  color: #34556d;
+  font-size: 11px;
+  text-align: right;
+}
+
+.bar-track {
+  overflow: hidden;
+  height: 9px;
+  border-radius: 9px;
+  background: #e7eef2;
+}
+
+.bar-track i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #3789b6;
+}
+
+/* Bar Chart Color Variants */
+.bar-chart.coral .bar-track i {
+  background: #d76b50;
+}
+.bar-chart.green .bar-track i {
+  background: #4c9b77;
+}
+.bar-chart.purple .bar-track i {
+  background: #8a69a8;
+}
+
+.no-data {
+  color: #7b8d9b;
+  font-size: 13px;
+}
+
+/* Trend Chart */
+.trend-card {
+  grid-column: span 2;
+}
+
+.trend-bars {
+  display: flex;
+  height: 150px;
+  align-items: end;
+  gap: 7px;
+  padding-top: 10px;
+  border-bottom: 1px solid #dae4ea;
+}
+
+.trend-column {
+  display: grid;
+  flex: 1;
+  height: 100%;
+  align-items: end;
+  justify-items: center;
+  gap: 5px;
+}
+
+.trend-column i {
+  width: min(23px, 100%);
+  min-height: 2px;
+  border-radius: 5px 5px 0 0;
+  background: #2a8495;
+}
+
+.trend-column b {
+  color: #507187;
+  font-size: 10px;
+}
+
+.trend-column span {
+  color: #758a9a;
+  font-size: 9px;
+  transform: rotate(-40deg);
+  white-space: nowrap;
+}
+/* Insight & Alert Grid */
+.insight-alert-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 16px;
+  margin-top: 17px;
+}
+
+.ai-insight {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  background: linear-gradient(135deg, #eff9fa, #fff);
+}
+
+.ai-insight h2,
+.alerts-panel h2 {
+  margin: 4px 0 0;
+  color: #1b425d;
+  font-size: 18px;
+}
+
+.ai-insight button {
+  align-self: start;
+  color: #fff;
+  background: #147386;
+}
+
+.ai-insight button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.ai-insight > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #416277;
+  line-height: 1.6;
+}
+
+.ai-insight small {
+  grid-column: 1 / -1;
+  color: #758c9c;
+  font-size: 11px;
+}
+
+/* Alerts Panel */
+.alerts-panel > div {
+  display: grid;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.alert {
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 3px solid #3e8dac;
+  background: #f3fafc;
+}
+
+.alert.high {
+  border-color: #bd4c49;
+  background: #fff3f2;
+}
+
+.alert.medium {
+  border-color: #db942f;
+  background: #fff9ef;
+}
+
+.alert b {
+  color: #244b65;
+  font-size: 12px;
+}
+
+.alert p {
+  margin: 4px 0 0;
+  color: #61798d;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Error & Loading States */
+.gov-error {
+  margin: 15px 0;
+  padding: 11px;
+  border-radius: 8px;
+  color: #a21e2e;
+  background: #fdebed;
+}
+
+.gov-loading {
+  padding: 90px;
+  color: #477187;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* Login Page */
+.gov-login-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0f4d65, #1a8790);
+}
+
+.gov-login-card {
+  display: grid;
+  width: min(385px, 100%);
+  gap: 12px;
+  padding: 33px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 25px 60px rgba(3, 39, 52, 0.25);
+}
+
+.gov-login-card .login-emblem {
+  margin-bottom: 7px;
+}
+
+.gov-login-card > p {
+  margin: 0;
+  color: #177184;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.gov-login-card h1 {
+  margin: -5px 0 0;
+  color: #1a3c55;
+}
+
+.gov-login-card > span:not(.login-emblem) {
+  margin-top: -7px;
+  color: #6b8293;
+  font-size: 13px;
+}
+
+.gov-login-card label {
+  display: grid;
+  gap: 6px;
+  margin-top: 5px;
+  color: #3f5d72;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.gov-login-card input {
+  padding: 11px;
+  border: 1px solid #cbdbe3;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.gov-login-card button {
+  margin-top: 7px;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  background: #11697c;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.gov-login-card button:disabled {
+  opacity: 0.65;
+}
+
+.gov-login-card small {
+  color: #748999;
+  text-align: center;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 980px) {
+  .gov-main-grid,
+  .insight-alert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trend-card {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .gov-page {
+    padding: 14px;
+  }
+
+  .gov-header,
+  .gov-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .gov-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .summary-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-bar label {
+    flex-basis: 100%;
+  }
+
+  .india-map {
+    min-height: 280px;
+  }
+
+  .gov-brand h1 {
+    font-size: 17px;
+  }
+}

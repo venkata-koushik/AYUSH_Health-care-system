@@ -1,0 +1,57 @@
+.waiting-container{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:80vh;
+
+}
+
+.waiting-card{
+
+    width:500px;
+    text-align:center;
+    background:white;
+    padding:50px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.spinner{
+
+    width:70px;
+    height:70px;
+    border:7px solid #ddd;
+    border-top:7px solid #2563eb;
+    border-radius:50%;
+    margin:auto;
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.waiting-card h2{
+
+    margin-top:25px;
+    color:#2563eb;
+
+}
+
+.waiting-card p{
+
+    margin-top:15px;
+    color:#555;
+
+}

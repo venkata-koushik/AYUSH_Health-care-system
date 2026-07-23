@@ -1,0 +1,163 @@
+.video-page {
+  width: min(1180px, 94%);
+  margin: 28px auto;
+  color: #172033;
+}
+
+.video-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.video-page h2 {
+  margin: 0;
+}
+.video-label {
+  margin: 0 0 4px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.call-status,
+.presence-bar span {
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.status-waiting {
+  background: #fef3c7;
+  color: #92400e;
+}
+.status-connecting {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+.status-connected {
+  background: #dcfce7;
+  color: #166534;
+}
+.status-disconnected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.status-completed {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.presence-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+.presence-bar .online {
+  background: #dcfce7;
+  color: #166534;
+}
+.presence-bar .offline {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.presence-bar .webrtc-status {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.video-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 18px;
+  min-height: 540px;
+}
+
+.remote-panel {
+  position: relative;
+  min-width: 0;
+}
+
+.remote-video,
+.local-video {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  background: #e9eef7;
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.12);
+}
+
+.remote-video {
+  height: 540px;
+}
+.local-video {
+  height: 210px;
+  align-self: end;
+}
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  color: #475569;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.video-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.video-controls button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 9px;
+  cursor: pointer;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+
+.video-controls button:hover {
+  background: #1d4ed8;
+}
+.end-btn {
+  background: #dc2626 !important;
+}
+.end-btn:hover {
+  background: #b91c1c !important;
+}
+.video-error {
+  margin-top: 14px;
+  color: #b91c1c;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .video-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .video-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .remote-video {
+    height: min(62vw, 440px);
+  }
+  .local-video {
+    width: 42%;
+    height: 130px;
+    justify-self: end;
+    margin-top: -150px;
+    z-index: 1;
+  }
+}

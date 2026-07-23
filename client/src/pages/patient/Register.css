@@ -1,0 +1,97 @@
+.patient-registration-page {
+  min-height: 100vh;
+  padding: 40px 16px;
+  background: linear-gradient(135deg, #eff8ff, #f9fcff);
+}
+.patient-registration-card {
+  width: min(800px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid #dceaf6;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgba(28, 79, 125, 0.11);
+}
+.patient-registration-kicker {
+  margin: 0 0 7px;
+  color: #1870b7;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.patient-registration-card h1 {
+  margin: 0;
+  color: #183d61;
+}
+.patient-registration-card
+  > p:not(.patient-registration-kicker):not(.patient-registration-error):not(
+    .patient-registration-footer
+  ) {
+  color: #687f96;
+}
+.patient-registration-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 22px;
+}
+.patient-registration-grid label {
+  display: grid;
+  gap: 7px;
+  color: #3c5871;
+  font-size: 13px;
+  font-weight: 700;
+}
+.patient-registration-grid input,
+.patient-registration-grid select,
+.patient-registration-grid textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cedfea;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+}
+.patient-registration-full {
+  grid-column: 1 / -1;
+}
+.patient-registration-error {
+  color: #aa1f2d;
+}
+.patient-registration-card button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 13px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #1d70b5;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.patient-registration-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+.patient-registration-footer {
+  text-align: center;
+  color: #637e97;
+}
+.patient-registration-footer a {
+  color: #1a6eaf;
+  font-weight: 800;
+}
+@media (max-width: 560px) {
+  .patient-registration-card {
+    padding: 23px;
+  }
+  .patient-registration-grid {
+    grid-template-columns: 1fr;
+  }
+  .patient-registration-full {
+    grid-column: auto;
+  }
+}

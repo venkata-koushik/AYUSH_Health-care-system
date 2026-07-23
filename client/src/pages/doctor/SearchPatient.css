@@ -1,0 +1,41 @@
+.search-container {
+  width: 90%;
+  margin: auto;
+  padding: 40px;
+}
+.search-card {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}ß
+.search-card h1 {
+  margin-bottom: 10px;
+}
+.search-card p {
+  margin-bottom: 30px;
+  color: #6b7280;
+}
+.search-card input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.search-card button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.search-card button:hover {
+  background: #1d4ed8;
+}   

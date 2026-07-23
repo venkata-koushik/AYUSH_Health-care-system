@@ -1,0 +1,44 @@
+.leaderboard {
+    width: 90%;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.leaderboard h1 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.leaderboard th {
+    background: #2563eb;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.leaderboard td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.leaderboard tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard tr:hover {
+    background: #f9fafb;
+}   

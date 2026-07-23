@@ -1,0 +1,56 @@
+.request-page{
+    width:90%;
+    margin:40px auto;
+}
+
+.request-page h1{
+    margin-bottom:30px;
+}
+
+.empty-box{
+    background:#fff;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.request-card{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.request-card h2{
+    margin-bottom:10px;
+}
+
+.request-card p{
+    margin:8px 0;
+}
+
+.btn-group{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.accept-btn{
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.reject-btn{
+    background:#dc2626;
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}

@@ -1,0 +1,47 @@
+.records-container{
+
+    width:90%;
+    margin:auto;
+    padding:30px;
+
+}
+
+.records-container h1{
+
+    margin-bottom:30px;
+
+}
+
+.record-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+
+}
+
+.record-card h2{
+
+    color:#2d6cdf;
+
+    margin-bottom:15px;
+
+}
+
+.record-card p{
+
+    margin:8px 0;
+
+}
+.record-diagnosis-box { margin-bottom: 14px; padding: 13px; border: 1px solid #bcd8ed; border-radius: 10px; background: #f4faff; }
+.record-diagnosis-box > strong { color: #457392; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.record-diagnosis-box h2 { margin: 5px 0 8px; }
+.record-diagnosis-box p { margin: 7px 0 0; }
+.record-diagnosis-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.record-diagnosis-tags span { padding: 4px 8px; border-radius: 999px; color: #256394; background: #dff0ff; font-size: 12px; font-weight: 700; }

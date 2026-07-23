@@ -1,0 +1,40 @@
+.timeline-container {
+  width: 90%;
+  margin: auto;
+  padding: 35px;
+}
+.timeline-container h1 {
+  margin-bottom: 35px;
+}
+.timeline-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: #2563eb;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.timeline-content {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.timeline-content h2 {
+  margin-bottom: 15px;
+}
+.timeline-content p {
+  margin: 10px 0;
+}   
+.timeline-diagnosis-box { margin-bottom: 10px; padding: 11px; border: 1px solid #c5def0; border-radius: 9px; background: #f4faff; }
+.timeline-diagnosis-box > strong { color: #4c7193; font-size: 11px; text-transform: uppercase; }
+.timeline-diagnosis-box h2 { margin: 4px 0 7px; }
+.timeline-diagnosis-box p { margin: 7px 0 0; }
+.timeline-diagnosis-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.timeline-diagnosis-tags span { padding: 3px 7px; border-radius: 999px; color: #226092; background: #dff1ff; font-size: 11px; font-weight: 700; }

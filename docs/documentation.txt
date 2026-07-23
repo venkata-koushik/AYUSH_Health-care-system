@@ -1,0 +1,396 @@
+file structure:-
+        AYUSH-AI-SYS/
+        │
+        ├── client/
+        ├── server/
+        ├── ai-service/
+        └── docs/
+
+pakages and uses 
+    server folder:
+                
+         ->  Initialize Node.js Project  |   npm init -y   | 
+            creates a package.json file
+         ->  Install Core Backend Packages |  npm install express cors dotenv  | 
+             express: Creates backend server and APIs  cors : Allows frontend and backend communication  dotenv :Loads environment variables securely
+         ->  Install Database Packages  | npm install sequelize pg pg-hstore |
+              sequelize	: ORM used to manage PostgreSQL easily  pg: PostgreSQL driver for Node.js   pg-hstore: Helps Sequelize store PostgreSQL data
+         ->  Install Authentication Packages |  npm install bcrypt jsonwebtoken |
+             bcrypt	: Encrypts user passwords securely  jsonwebtoken : Creates secure login tokens (JWT)
+         ->  Install Development Package | npm install --save-dev nodemon |
+              nodemon : Automatically restarts server after code changes
+      backend folder structure :-
+
+        mkdir src
+        cd src
+        mkdir config controllers routes models middleware services utils
+
+                | ---------------------------------------------------- |
+                | Folder      | Purpose                                |
+                | ----------- | -------------------------------------- |
+                | config      | Database and environment configuration |
+                | controllers | Handles API request logic              |
+                | routes      | API endpoint definitions               |
+                | models      | Database table structures              |
+                | middleware  | Authentication and security checks     |
+                | services    | Business logic and reusable functions  |
+                | utils       | Helper functions and utilities         |
+                | ---------------------------------------------------- |
+
+
+        Create Main Backend Files :-
+            -> server/server.js
+            -> server/src/app.js           
+                
+        Configure package.json Scripts - add this :-
+            "scripts": {
+            "dev": "nodemon server.js"
+             }          
+        run the backend server :-
+            npm run dev
+
+        progress update (work completed so far):
+
+            backend — implemented:
+                - Models: `Patient`, `Doctor`, `Student` created under `server/src/models`.
+                - Controllers & Routes: basic auth flows implemented for doctor, patient, and student (register/login/logout) in `server/src/controllers` and `server/src/routes`.
+                - Patient model: password field present; password-reset/OTP fields were added earlier (see `server/src/models/patientModel.js`).
+                - Password handling: `bcrypt` hashing is used for stored passwords.
+                - Auth tokens: `jsonwebtoken` used for login tokens (JWT); `JWT_SECRET` is read from `.env`.
+                - App wiring: `server/src/app.js` mounts doctor, patient and student routes and connects to PostgreSQL via Sequelize (`server/src/config/db.js`).
+
+            dev & misc:
+                - `.env` present with DB and `JWT_SECRET` values; `dotenv` is configured in `config/db.js`.
+                - Seed data: sample approved license seeds exist under `server/src/seeders`.
+
+            notes — remaining high-level items (not exhaustive):
+                - Frontend (`client/`) is not implemented yet.
+                - Password-reset/OTP endpoints, notification util (email/SMS), auth middleware, profile/dashboard APIs, and appointment flows still need implementation.
+
+        API Endpoints (implemented so far)
+
+            Base URL (local dev):
+                http://localhost:5000
+
+            Doctor routes:
+                - POST /api/doctor/register
+                    Required JSON: { fullName, governmentLicenseId, email, phoneNumber, address, password }
+                - POST /api/doctor/login
+                    Required JSON: { email, password }
+
+            Patient routes:
+                - POST /api/patient/register
+                    Required JSON: { fullName, aadhaarNumber(12), phoneNumber, email, dateOfBirth(YYYY-MM-DD), password, optional: bloodGroup, allergies, chronicConditions, address, preferredLanguage }
+                - POST /api/patient/login
+                    Required JSON: { email, password }
+                - POST /api/patient/logout
+
+            Student routes:
+                - POST /api/student/register
+                    Required JSON: { name, instituteName, collegeEmail, phoneNumber, password }
+                - POST /api/student/login
+                    Required JSON: { collegeEmail, password }
+                - POST /api/student/logout
+
+        Quick JSON examples to test (use Content-Type: application/json):
+
+            Patient register example:
+                {
+                  "fullName":"John Doe",
+                  "aadhaarNumber":"123456789012",
+                  "phoneNumber":"9876543210",
+                  "email":"john@example.com",
+                  "dateOfBirth":"1990-01-01",
+                  "password":"secret123",
+                  "bloodGroup":"A+",
+                  "allergies":"None",
+                  "chronicConditions":"None",
+                  "address":"123 Main St",
+                  "preferredLanguage":"English"
+                }
+
+            Student register example:
+                {
+                  "name":"Alice Kumar",
+                  "instituteName":"AYUSH College",
+                  "collegeEmail":"alice@example.edu",
+                  "phoneNumber":"9876543210",
+                  "password":"secret123"
+                }
+
+            Doctor login example:
+                { "email":"dr@example.com", "password":"secret123" }
+
+
+---------------------------------------------------------------------
+Update: Government Portal (GOI) additions — June 2, 2026
+---------------------------------------------------------------------
+
+Summary of new features and edits (what we added / changed):
+
+- Purpose: Add a simple Government of India (GOI) dashboard login and
+    a minimal protected dashboard API that aggregates patient data.
+
+- New routes and controllers:
+    - `server/src/controllers/govController.js` — handles `POST /api/gov/login`
+        and `GET /api/gov/dashboard` (basic summary).
+    - `server/src/routes/govRoutes.js` — registers the gov routes and uses
+        `verifyGovToken` middleware for the dashboard endpoint.
+
+- New middleware:
+    - `server/src/middleware/verifyGovToken.js` — validates `Authorization: Bearer <token>`.
+        Note: an earlier bug split the header into characters; this file now
+        correctly parses `Bearer` and extracts the token.
+
+- Model updates:
+    - `server/src/models/patientModel.js` — added fields: `state`, `district`, `uhid`.
+        These fields are optional but used by the government dashboard aggregations.
+
+- Controller updates:
+    - `server/src/controllers/patientController.js` — patient registration now accepts
+        optional `state`, `district`, and `uhid` and writes them to the model.
+
+- App wiring changes:
+    - `server/src/app.js` — mounts the new `["/api/gov"]` routes.
+
+- Env example added:
+    - `.env.example` includes `GOV_USERNAME` and `GOV_PASSWORD` along with `JWT_SECRET`.
+
+- Security / Auth:
+    - GOI login is simple and uses fixed credentials stored in env vars
+        (`GOV_USERNAME`, `GOV_PASSWORD`). A successful login returns a JWT.
+    - Dashboard API (`GET /api/gov/dashboard`) requires `Authorization: Bearer <token>`.
+
+
+Files Added/Edited (quick reference):
+ - Added: [server/src/controllers/govController.js](server/src/controllers/govController.js)
+ - Added: [server/src/routes/govRoutes.js](server/src/routes/govRoutes.js)
+ - Added: [server/src/middleware/verifyGovToken.js](server/src/middleware/verifyGovToken.js)
+ - Edited: [server/src/app.js](server/src/app.js)
+ - Edited: [server/src/models/patientModel.js](server/src/models/patientModel.js)
+ - Edited: [server/src/controllers/patientController.js](server/src/controllers/patientController.js)
+ - Added: [.env.example](.env.example)
+
+
+How the GOI flow works (short):
+ 1. Client POSTs `username` and `password` to `/api/gov/login`.
+ 2. Server compares them to `process.env.GOV_USERNAME` and `process.env.GOV_PASSWORD`.
+ 3. On success the server returns a JWT signed with `JWT_SECRET`.
+ 4. Client uses the JWT in `Authorization: Bearer <token>` to access `/api/gov/dashboard`.
+
+
+Testing the GOI endpoints (curl examples):
+
+1) Login (replace values or copy from `.env`):
+
+```bash
+curl -X POST http://localhost:5000/api/gov/login \
+    -H "Content-Type: application/json" \
+    -d '{"username":"goi","password":"goi1234"}'
+```
+
+Successful response sample:
+```json
+{ "success": true, "message": "Government login successful", "token": "<JWT>" }
+```
+
+2) Use the token to fetch the dashboard summary:
+
+```bash
+curl http://localhost:5000/api/gov/dashboard \
+    -H "Authorization: Bearer <JWT>"
+```
+
+Expected response (basic):
+```json
+{
+    "success": true,
+    "totalPatients": 123,
+    "stateSummary": [ { "state": "StateName", "patientCount": 10, "risk": "low" } ],
+    "recentPatients": [ { "fullName": "...", "state": "...", "uhid": "..." } ],
+    "alerts": [ { "id":1, "title":"No active outbreak alerts." } ]
+}
+```
+
+
+Frontend notes & UI guidance:
+ - Login page should be very simple and match the GOI look you requested:
+     Title: "GOI"
+     Subtitle: "Official Access"
+     Text: "Government of India National Digital Health Portal"
+     Fields: `Username`, `Password`
+     Buttons: `Login`, `Back`
+
+ - On successful login the frontend should store the JWT (e.g. in memory or secure storage)
+     and call `/api/gov/dashboard` to load the map, heatmap and lists like the screenshot.
+
+
+Image / screenshot
+ - Place the government dashboard image under `docs/government_dashboard.png` and
+     reference it in the docs.
+ - (Placeholder) Screenshot reference: [docs/government_dashboard.png](docs/government_dashboard.png)
+
+
+Developer checklist to deploy & test locally:
+ 1. Copy `.env.example` to `.env` and set DB and GOV credentials.
+ 2. Ensure Postgres is running and `.env` DB settings are correct.
+ 3. Run the server:
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+4. Test login and dashboard endpoints using curl or Postman as shown above.
+
+
+Notes about the recent bug fixed:
+ - The dashboard appeared "disconnected" because `verifyGovToken` previously used
+     `authHeader.split("")` which split the string into characters and returned
+     an incorrect token value. That middleware is now fixed to parse `Bearer <token>`.
+
+
+If you want, next I can:
+ - Add a simple frontend React page for the GOI login (single file) and example
+     code that calls the endpoints.
+ - Create a small Postman/Thunder Client collection and attach it under `docs/`.
+
+---------------------------------------------------------------------
+
+
+Project changelog — concise & clear (up to June 2, 2026)
+-----------------------------------------------------
+
+Overview
+ - Purpose: Add a minimal, secure government dashboard (GOI) that reads
+     live patient data from the main app database and presents state/district
+     summaries and recent activity.
+
+What we've implemented (high level)
+ - Backend: Added a Government login and protected dashboard endpoint.
+ - Models: Extended `Patient` model with `state`, `district`, and `uhid`.
+ - Middleware: Implemented `verifyGovToken` to validate `Authorization: Bearer <token>`.
+ - Bug fix: Corrected token parsing logic (previously split into characters).
+ - Documentation: Added developer/test instructions and a JSON summary file.
+
+Files added
+ - `server/src/controllers/govController.js` — gov login + dashboard summary.
+ - `server/src/routes/govRoutes.js` — mounts the gov endpoints.
+ - `server/src/middleware/verifyGovToken.js` — JWT validation middleware.
+ - `.env.example` — includes `GOV_USERNAME` and `GOV_PASSWORD` entries.
+
+Files edited
+ - `server/src/app.js` — mounted `/api/gov` route and ensured models are wired.
+ - `server/src/models/patientModel.js` — added `state`, `district`, `uhid` fields.
+ - `server/src/controllers/patientController.js` — accepts `state`, `district`, `uhid` during registration.
+ - `docs/documentation.txt` — this file updated with the changelog and instructions.
+
+Key endpoints (quick reference)
+ - POST `/api/gov/login` — body: `{ username, password }`
+     - Reads credentials from `process.env.GOV_USERNAME` and `process.env.GOV_PASSWORD`.
+     - Returns `{ success:true, token }` on success.
+ - GET `/api/gov/dashboard` — requires header `Authorization: Bearer <token>`
+     - Returns aggregated data: `totalPatients`, `stateSummary`, `recentPatients`, `alerts`.
+
+Testing & quick start
+ 1. Copy `.env.example` → `.env` and update DB and GOV credentials.
+ 2. Ensure Postgres is running and DB credentials match `.env`.
+ 3. Start server:
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+4. Test login and dashboard (replace token):
+
+Login:
+```bash
+curl -X POST http://localhost:5000/api/gov/login \
+    -H "Content-Type: application/json" \
+    -d '{"username":"goi","password":"goi1234"}'
+```
+
+Dashboard:
+```bash
+curl http://localhost:5000/api/gov/dashboard \
+    -H "Authorization: Bearer <JWT>"
+```
+
+Why this order and why minimal credentials
+ - Authentication is the foundation: without proper auth the dashboard
+     endpoints are unauthenticated and risk exposure. We keep the GOI login
+     intentionally simple (env-based) to match your request for fixed credentials.
+
+Next recommended improvements (short list)
+ - Replace env-based GOI credentials with a `GovernmentOfficial` model and
+     DB-stored accounts (allows multiple users and active/disabled flags).
+ - Add role-based authorization (if needed) and audit logging for GOV actions.
+ - Build a lightweight frontend login page and dashboard components (map, heatmap, lists).
+ - Add more aggregation endpoints (district-level, disease filters, time ranges).
+
+Machine-readable summary created at `docs/changes.json` (see file).
+
+If you want, I'll now create a simple single-file React login UI and example
+fetch code that uses `/api/gov/login` and stores the JWT, then loads `/api/gov/dashboard`.
+
+
+        Confusing or important points observed (check these before testing):
+            - Patient controller earlier had incorrect parameter order (res, req) which was fixed; if you see "internal issue" enable logging to get real errors.
+            - Field name mismatches: controller uses 'bloodGroup' and 'address' while model fields are 'bloodgroup' and 'address' (or previously 'adress' in older versions). Ensure request keys match or controller maps them.
+            - Patient model: password reset / OTP fields were added during development; in some commits they appear commented out — check `server/src/models/patientModel.js` for current state.
+            - JWT secret: defined in `.env` as JWT_SECRET and loaded via dotenv in `server/src/config/db.js`. Ensure `.env` exists when running the server.
+            - Route imports: `app.js` must import from `./routes/...` (not `./routers`). If routes are not mounted, APIs will 404.
+            - Student controller: watch for `instituteName` vs `institueName` typo. Controller should use `instituteName` to match the model.
+            - Error messages: some login/register handlers return generic "internal issue" messages. Add `console.error(error)` in catch blocks to see details during local testing.
+
+        Main files to review quickly:
+            - server/src/app.js  (route mounting, DB sync)
+            - server/src/models/* (patientModel.js, doctorModel.js, studentModel.js)
+            - server/src/controllers/* (patientController.js, doctorController.js, studentController.js)
+            - server/.env  (DB credentials, JWT_SECRET)
+
+If you want, I can now generate a small OpenAPI-style list for these endpoints (short and machine-readable) or convert the examples into Thunder Client collections. Tell me which.
+
+
+---------------------------------------------------------------------
+Project update — July 22, 2026
+---------------------------------------------------------------------
+
+This release completes the responsive AYUSH portal refresh and deployment preparation.
+
+Completed user experience work
+ - Added a formal role-selection home page for Doctor, Patient and Student access.
+ - Applied a consistent teal/blue AYUSH visual system to dashboards, records,
+   profiles, forms, requests, EHR pages, chat, video, student and doctor pages.
+ - Added patient dashboard reminders for consultation status and recent EHRs.
+ - Added student dashboard reminders for pending chat and video requests.
+ - Added AYUSH Care Guide, a protected patient-only health-information chat.
+   It gives concise practical answers, shows emergency guidance for key warning
+   phrases, and does not save chat messages as EHR data.
+
+Video consultation update
+ - Fixed a signalling race where a WebRTC offer could be sent before the other
+   participant had installed its camera/microphone and WebRTC handlers.
+ - The server now waits for both participants to confirm media readiness before
+   asking the student/initiator to create an offer.
+ - Added a fallback for browsers that deliver a remote media track without an
+   attached MediaStream.
+ - Added a favicon to remove the local `/favicon.ico` 404.
+
+Deployment notes
+ - API and frontend URLs are now environment-driven using `VITE_API_URL`,
+   `VITE_SOCKET_URL` and server-side `CLIENT_ORIGIN`.
+ - Copy `frontend/.env.example` and `server/.env.example` when deploying; do
+   not commit actual values or secrets.
+ - Production video calls require HTTPS and a TURN server. STUN-only calls may
+   fail across mobile networks, office networks or strict NATs.
+ - See the root `README.md` for exact local start, deploy and verification
+   steps.
+ - The deployed API exposes `GET /health` for the hosting platform health
+   check. It returns `{ "status": "ok", "service": "AYUSH API" }`.
+
+
+

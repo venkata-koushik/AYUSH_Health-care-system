@@ -1,0 +1,38 @@
+.patients-container {
+  width: 90%;
+  margin: auto;
+  padding: 35px;
+}
+.patients-container h1 {
+  margin-bottom: 30px;
+}
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+.patient-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.patient-card h2 {
+  margin-bottom: 15px;
+}
+.patient-card p {
+  margin: 10px 0;
+}
+.patient-card button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.patient-card button:hover {
+  background: #1d4ed8;
+}   
