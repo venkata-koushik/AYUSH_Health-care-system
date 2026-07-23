@@ -37,10 +37,32 @@
 .section textarea {
   resize: none;
 }
-.ehr-field-help { margin: 8px 0; color: #6b7280; font-size: 13px; }
-.ehr-diagnosis-category-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.ehr-diagnosis-category { border: 1px solid #cbd5e1; border-radius: 999px; padding: 7px 10px; color: #334155; background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
-.ehr-diagnosis-category.selected { border-color: #2563eb; color: #fff; background: #2563eb; }
+.ehr-field-help {
+  margin: 8px 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+.ehr-diagnosis-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.ehr-diagnosis-category {
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: #334155;
+  background: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.ehr-diagnosis-category.selected {
+  border-color: #2563eb;
+  color: #fff;
+  background: #2563eb;
+}
 .ehr-card button {
   width: 100%;
   margin-top: 30px;
@@ -54,4 +76,4 @@
 }
 .ehr-card button:hover {
   background: #15803d;
-}   
+}
