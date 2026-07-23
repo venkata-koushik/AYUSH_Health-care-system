@@ -3,7 +3,6 @@ file structure:-
         │
         ├── client/
         ├── server/
-        ├── ai-service/
         └── docs/
 
 pakages and uses 
