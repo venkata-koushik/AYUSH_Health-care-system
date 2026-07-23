@@ -85,7 +85,7 @@ Review.belongsTo(Student, {
 
 const app = express();
 
-const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
+const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5174")
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
