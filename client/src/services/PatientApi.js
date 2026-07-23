@@ -1,7 +1,7 @@
 import api from "./Api";
 
 export const loginPatient = (credentials) =>
-  api.post("/patient/login", credentials);
+   api.post("/patient/login", credentials);
 
 export const registerPatient = (data) => api.post("/patient/register", data);
 
