@@ -208,4 +208,309 @@ It showcases practical implementations of:
 
 ---
 
-> **Continue to Part 2 →** *Getting Started, Testing Guide, Login Credentials, Video Consultation Workflow, and Government Login.*
+# 🚀 Getting Started
+
+Follow the steps below to explore and test the complete healthcare platform.
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/venkata-koushik/AYUSH_Health-care-system.git
+cd AYUSH_Health-care-system
+```
+
+### 2️⃣ Install Dependencies
+
+#### Frontend
+
+```bash
+cd client
+npm install
+```
+
+#### Backend
+
+```bash
+cd ../server
+npm install
+```
+
+### 3️⃣ Configure Environment Variables
+
+Create the required `.env` files for both the client and server with your respective configuration.
+
+### 4️⃣ Start the Application
+
+#### Backend
+
+```bash
+npm run dev
+```
+
+#### Frontend
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```
+Frontend : http://localhost:5173
+Backend  : http://localhost:5001
+```
+
+---
+
+# 🧪 Testing the Platform
+
+The platform has been designed to simulate a real-world healthcare ecosystem involving Patients, Medical Students, Doctors, and Government Authorities.
+
+For the best experience, it is recommended to explore each role separately and then test the interactions between them.
+
+---
+
+# 🔑 Demo Login Credentials
+
+## 👨‍⚕️ Doctor Account
+
+Use the following pre-registered doctor account to experience the complete doctor workflow.
+
+| Email | Password |
+|--------|----------|
+| **sharma@gmail.com** | **12345678** |
+
+### Doctor Features
+
+- Doctor Dashboard
+- QR Patient Consultation
+- AI Draft EHR Generation
+- Patient History
+- Video Consultation
+- Real-Time Chat
+- Consultation Management
+
+> **Note:** New doctor registration requires a valid Government Medical License ID.
+
+---
+
+## 🎓 Student Account
+
+You may either create a new student account or use the existing demo account.
+
+| Email | Password |
+|--------|----------|
+| **koushik@gmail.com** | **12345678** |
+
+### Student Features
+
+- Student Dashboard
+- Patient Interaction
+- Video Consultation
+- Real-Time Chat
+- Clinical Learning Workflow
+
+---
+
+## 🧑 Patient Account
+
+Patients are encouraged to register their own account to experience the complete workflow.
+
+You may register using:
+
+- Any Email Address
+- Any Valid Name
+- Password of your choice
+
+For the best testing experience, create your own patient account and use it throughout the platform.
+
+### Patient Features
+
+- Personal Dashboard
+- Medical History
+- Video Consultation
+- Chat with Healthcare Professionals
+- Digital Health Records
+
+---
+
+## 🏛️ Government Dashboard
+
+The Government Dashboard demonstrates how healthcare administrators can monitor system-wide healthcare activities through analytics and AI-powered summaries.
+
+| Username | Password |
+|----------|----------|
+| **goi** | **goi1234** |
+
+### Government Dashboard Includes
+
+- Healthcare Analytics
+- Consultation Statistics
+- Patient Statistics
+- Doctor Statistics
+- Student Statistics
+- AI Insights
+- Platform Usage Analytics
+- Overall System Overview
+
+---
+
+# 💡 Recommended Testing Flow
+
+For the best understanding of the platform, follow the sequence below.
+
+### Step 1
+
+Register a **Patient** account.
+
+↓
+
+### Step 2
+
+Login as the **Patient** and explore the patient dashboard.
+
+↓
+
+### Step 3
+
+Register or login as the **Student**.
+
+↓
+
+### Step 4
+
+Open another browser and login as the **Doctor**.
+
+↓
+
+### Step 5
+
+Explore the Doctor Workspace.
+
+↓
+
+### Step 6
+
+Generate an AI-assisted Electronic Health Record.
+
+↓
+
+### Step 7
+
+Review Patient History.
+
+↓
+
+### Step 8
+
+Login as the Government user and explore the Analytics Dashboard along with AI Insights.
+
+---
+
+# 📹 Video Consultation Guide
+
+The video consultation module demonstrates real-time telemedicine using **WebRTC**.
+
+To test this feature successfully:
+
+### Option 1 (Recommended)
+
+Open:
+
+- Browser 1 → Student
+- Browser 2 (or Incognito Window) → Patient
+
+Join the consultation from both accounts.
+
+---
+
+### Option 2
+
+Use two different devices.
+
+For example:
+
+- Laptop → Student
+- Mobile Phone → Patient
+
+This provides the best real-time experience.
+
+---
+
+## ⚠️ Important Note
+
+The Student account must be online before initiating the consultation.
+
+If you wish to test the complete Patient ↔ Student video consultation workflow, kindly contact me before starting the session so that I can login as the Student and assist you during testing.
+
+### 📞 Contact
+
+**Mobile / WhatsApp**
+
+```
+7815873699
+```
+
+When sending a message, please include:
+
+```
+Hello!
+
+I would like to test the Video Consultation feature.
+
+Preferred Language:
+```
+
+This helps me coordinate the session and provide a smooth testing experience.
+
+---
+
+# 🔄 Typical Healthcare Workflow
+
+The platform follows a digital healthcare workflow similar to real clinical environments.
+
+```text
+Patient Registration
+        │
+        ▼
+Student Interaction
+        │
+        ▼
+Doctor Consultation
+        │
+        ▼
+AI Draft EHR Generation
+        │
+        ▼
+Doctor Review & Approval
+        │
+        ▼
+Patient Medical History Updated
+        │
+        ▼
+Government Analytics Updated
+        │
+        ▼
+AI Insights Generated
+```
+
+---
+
+# 🔒 Authentication & Access Control
+
+The platform follows **Role-Based Access Control (RBAC)**.
+
+Each user can only access the modules assigned to their role.
+
+| Role | Accessible Modules |
+|------|---------------------|
+| Patient | Patient Dashboard, Chat, Video Consultation, Medical History |
+| Student | Student Dashboard, Chat, Video Consultation |
+| Doctor | Doctor Workspace, AI EHR, Patient Management |
+| Government | Analytics Dashboard, AI Insights, Statistics |
+
+Unauthorized users cannot access restricted dashboards or protected APIs.
+
+---
+
+> **Continue to Part 3 →** *Project Structure, Future Enhancements, Contact Information, Acknowledgements, and License.*
