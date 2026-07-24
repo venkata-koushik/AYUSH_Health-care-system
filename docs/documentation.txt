@@ -69,7 +69,7 @@ pakages and uses
         API Endpoints (implemented so far)
 
             Base URL (local dev):
-                http://localhost:5000
+                http://localhost:5001
 
             Doctor routes:
                 - POST /api/doctor/register
@@ -122,7 +122,7 @@ pakages and uses
 
 
 ---------------------------------------------------------------------
-Update: Government Portal (GOI) additions — June 2, 2026
+Update: Government Portal (GOI) additions 
 ---------------------------------------------------------------------
 
 Summary of new features and edits (what we added / changed):
@@ -183,7 +183,7 @@ Testing the GOI endpoints (curl examples):
 1) Login (replace values or copy from `.env`):
 
 ```bash
-curl -X POST http://localhost:5000/api/gov/login \
+curl -X POST http://localhost:5001/api/gov/login \
     -H "Content-Type: application/json" \
     -d '{"username":"goi","password":"goi1234"}'
 ```
@@ -196,7 +196,7 @@ Successful response sample:
 2) Use the token to fetch the dashboard summary:
 
 ```bash
-curl http://localhost:5000/api/gov/dashboard \
+curl http://localhost:5001/api/gov/dashboard \
     -H "Authorization: Bearer <JWT>"
 ```
 
@@ -250,16 +250,9 @@ Notes about the recent bug fixed:
      an incorrect token value. That middleware is now fixed to parse `Bearer <token>`.
 
 
-If you want, next I can:
- - Add a simple frontend React page for the GOI login (single file) and example
-     code that calls the endpoints.
- - Create a small Postman/Thunder Client collection and attach it under `docs/`.
 
----------------------------------------------------------------------
-
-
-Project changelog — concise & clear (up to June 2, 2026)
------------------------------------------------------
+Project changelog — concise & clear 
+--------------------------------------------------------
 
 Overview
  - Purpose: Add a minimal, secure government dashboard (GOI) that reads
@@ -307,14 +300,14 @@ npm run dev
 
 Login:
 ```bash
-curl -X POST http://localhost:5000/api/gov/login \
+curl -X POST http://localhost:5001/api/gov/login \
     -H "Content-Type: application/json" \
     -d '{"username":"goi","password":"goi1234"}'
 ```
 
 Dashboard:
 ```bash
-curl http://localhost:5000/api/gov/dashboard \
+curl http://localhost:5001/api/gov/dashboard \
     -H "Authorization: Bearer <JWT>"
 ```
 
