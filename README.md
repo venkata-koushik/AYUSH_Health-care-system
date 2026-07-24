@@ -513,4 +513,237 @@ Unauthorized users cannot access restricted dashboards or protected APIs.
 
 ---
 
-> **Continue to Part 3 →** *Project Structure, Future Enhancements, Contact Information, Acknowledgements, and License.*
+# 📂 Project Structure
+
+The project follows a modular full-stack architecture to separate frontend, backend, APIs, database models, and static assets for better scalability and maintainability.
+
+```text
+AYUSH_Health-care-system/
+│
+├── client/                 # React Frontend
+│   ├── src/
+│   ├── public/
+│   └── ...
+│
+├── server/                 # Express Backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── services/
+│   ├── sockets/
+│   └── ...
+│
+├── uploads/                # Uploaded Files
+├── README.md
+└── package.json
+```
+
+---
+
+# 🔐 Security Features
+
+The platform incorporates several security measures to ensure secure access and protect user data.
+
+- JWT Authentication
+- Password Encryption
+- Protected API Routes
+- Role-Based Access Control (RBAC)
+- Secure Session Management
+- Authentication Middleware
+- Input Validation
+- Secure Database Access
+
+Each user can only access the resources assigned to their role.
+
+---
+
+# ☁️ Deployment
+
+The application has been deployed using modern cloud services.
+
+| Service | Platform |
+|----------|----------|
+| Frontend | Vercel |
+| Backend | Render |
+| Database | Neon PostgreSQL |
+
+This architecture enables independent deployment of the frontend, backend, and database while maintaining scalability and ease of maintenance.
+
+---
+
+# 🚀 Future Enhancements
+
+The current platform serves as a strong foundation for a modern AI-enabled healthcare ecosystem. Some planned enhancements include:
+
+- 📅 Online Appointment Scheduling
+- 💊 Digital Prescription Management
+- 🔔 Email & SMS Notifications
+- 📱 Mobile Application (Android & iOS)
+- 📈 Advanced Healthcare Analytics
+- 🧠 Disease Prediction Models
+- 🌐 Multi-Language Support
+- 📄 OCR-Based Prescription Digitization
+- 🏥 Multi-Hospital Support
+- ☁️ Cloud File Storage
+- 🤖 Advanced Clinical AI Assistant
+- 📊 Real-Time Public Health Monitoring
+
+---
+
+# 🌟 Project Highlights
+
+This project demonstrates practical implementation of several modern software engineering concepts:
+
+- Full-Stack Web Development
+- RESTful API Design
+- Artificial Intelligence Integration
+- Electronic Health Records (EHR)
+- Real-Time Communication
+- Video Conferencing
+- QR-Based Clinical Workflow
+- Secure Authentication & Authorization
+- Government Analytics Dashboard
+- Cloud Deployment
+- Database Management
+- Responsive User Interface
+
+---
+
+# 🤝 Contributing
+
+Contributions are always welcome!
+
+If you would like to improve the project:
+
+1. Fork the repository
+2. Create a new feature branch
+
+```bash
+git checkout -b feature/your-feature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add your feature"
+```
+
+4. Push the branch
+
+```bash
+git push origin feature/your-feature
+```
+
+5. Open a Pull Request
+
+Suggestions, bug reports, and feature requests are greatly appreciated.
+
+---
+
+# 🐞 Known Limitations
+
+As this project is continuously evolving, a few features are currently under active development.
+
+- Appointment scheduling is not yet available.
+- Email notifications are not integrated.
+- Mobile application is not yet developed.
+- Some AI outputs should be considered as clinical assistance rather than medical advice.
+- Government analytics are currently generated using application data available within the platform.
+
+---
+
+# 👨‍💻 Developer
+
+**Venkata Koushik Potta**
+
+Full Stack Developer | AI & Healthcare Enthusiast
+
+Passionate about building intelligent healthcare solutions that combine Artificial Intelligence with modern web technologies to improve digital healthcare experiences.
+
+---
+
+# 📬 Contact
+
+For project discussions, collaborations, or assistance while testing the application:
+
+📧 **Email**
+
+```
+(Your Email Address)
+```
+
+📱 **Mobile / WhatsApp**
+
+```
+7815873699
+```
+
+💼 **LinkedIn**
+
+```
+(Add Your LinkedIn Profile)
+```
+
+💻 **GitHub**
+
+```
+https://github.com/venkata-koushik
+```
+
+---
+
+# 🙏 Acknowledgements
+
+Special thanks to the open-source community and the technologies that made this project possible.
+
+- React
+- Express.js
+- Node.js
+- PostgreSQL
+- Sequelize ORM
+- Socket.IO
+- WebRTC
+- Groq AI
+- Vite
+- Render
+- Vercel
+- Neon PostgreSQL
+
+---
+
+# 📄 License
+
+This project is intended for educational, research, and demonstration purposes.
+
+You are welcome to explore, learn from, and contribute to the project. If you use this work in your own projects or research, kindly provide appropriate attribution.
+
+---
+
+# ⭐ Support
+
+If you found this project helpful or interesting:
+
+⭐ Star this repository
+
+🍴 Fork the repository
+
+📢 Share your feedback
+
+🤝 Contribute to future improvements
+
+Your support helps improve the project and motivates future development.
+
+---
+
+<div align="center">
+
+### 🏥 AI-Enabled Healthcare Management System
+
+**Connecting Patients, Medical Students, Doctors, and Government through Artificial Intelligence, Telemedicine, and Digital Healthcare.**
+
+**Built with ❤️ using React, Express.js, PostgreSQL, WebRTC, Socket.IO & Groq AI**
+
+⭐ **If you like this project, consider giving it a Star!**
+
+</div>
