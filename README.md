@@ -670,7 +670,7 @@ For project discussions, collaborations, or assistance while testing the applica
 📧 **Email**
 
 ```
-(Your Email Address)
+koushik.chinu.2007@gmail.com
 ```
 
 📱 **Mobile / WhatsApp**
@@ -682,7 +682,7 @@ For project discussions, collaborations, or assistance while testing the applica
 💼 **LinkedIn**
 
 ```
-(Add Your LinkedIn Profile)
+
 ```
 
 💻 **GitHub**
@@ -690,25 +690,6 @@ For project discussions, collaborations, or assistance while testing the applica
 ```
 https://github.com/venkata-koushik
 ```
-
----
-
-# 🙏 Acknowledgements
-
-Special thanks to the open-source community and the technologies that made this project possible.
-
-- React
-- Express.js
-- Node.js
-- PostgreSQL
-- Sequelize ORM
-- Socket.IO
-- WebRTC
-- Groq AI
-- Vite
-- Render
-- Vercel
-- Neon PostgreSQL
 
 ---
 
