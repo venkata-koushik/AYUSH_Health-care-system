@@ -2,6 +2,7 @@ import "./Dashboard.css";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getStudentDashboard } from "../../services/StudentApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function Dashboard() {
   if (!dashboard) {
     return (
       <div className="student-dashboard">
-        <h2>Loading Dashboard...</h2>
+        <SkeletonList count={3} lines={2} label="Loading dashboard" />
       </div>
     );
   }

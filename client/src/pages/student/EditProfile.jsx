@@ -5,6 +5,7 @@ import {
   getStudentProfile,
   updateStudentProfile,
 } from "../../services/StudentApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -71,7 +72,11 @@ function EditProfile() {
   };
 
   if (loading) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="edit-profile">
+        <SkeletonList count={1} lines={6} label="Loading profile" />
+      </div>
+    );
   }
 
   return (

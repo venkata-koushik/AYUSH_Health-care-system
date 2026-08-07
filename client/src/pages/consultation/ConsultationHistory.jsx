@@ -4,6 +4,7 @@ import {
   getMyChatRequests,
   getMyVideoRequests,
 } from "../../services/PatientApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function ConsultationHistory() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -36,7 +37,7 @@ function ConsultationHistory() {
     return (
       <div className="history-page">
         <h1>Consultation History</h1>
-        <p>Loading consultation history...</p>
+        <SkeletonList count={3} lines={3} label="Loading consultation history" />
       </div>
     );
   }

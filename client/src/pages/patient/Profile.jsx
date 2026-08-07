@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getProfile } from "../../services/PatientApi";
 import "./Profile.css";
+import { SkeletonList } from "../../components/Skeleton";
 
 function Profile() {
   const [patient, setPatient] = useState(null);
@@ -29,7 +30,7 @@ function Profile() {
   if (!patient)
     return (
       <div className="profile-page">
-        <p>Loading profile...</p>
+        <SkeletonList count={1} lines={6} label="Loading profile" />
       </div>
     );
 

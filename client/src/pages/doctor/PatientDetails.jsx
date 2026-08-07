@@ -2,6 +2,7 @@ import "./PatientDetails.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPatientDetails } from "../../services/DoctorApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function PatientDetails() {
   const { uhid } = useParams();
@@ -23,7 +24,11 @@ function PatientDetails() {
   }, [uhid]);
 
   if (!patient) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="patient-details-container">
+        <SkeletonList count={1} lines={6} label="Loading patient" />
+      </div>
+    );
   }
 
   return (

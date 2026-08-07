@@ -2,6 +2,7 @@ import "./Profile.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getStudentProfile } from "../../services/StudentApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function Profile() {
   const [student, setStudent] = useState(null);
@@ -20,7 +21,11 @@ function Profile() {
   }, []);
 
   if (!student) {
-    return <h2>Loading...</h2>;
+    return (
+      <div className="profile-container">
+        <SkeletonList count={1} lines={6} label="Loading profile" />
+      </div>
+    );
   }
 
   return (

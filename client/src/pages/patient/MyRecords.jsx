@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMyRecords } from "../../services/PatientApi";
 import "./MyRecords.css";
+import { SkeletonList } from "../../components/Skeleton";
 
 function MyRecords() {
   const [records, setRecords] = useState([]);
@@ -31,7 +32,7 @@ function MyRecords() {
     return (
       <div className="records-container">
         <h1>My Medical Records</h1>
-        <p>Loading medical records...</p>
+        <SkeletonList count={3} lines={3} label="Loading medical records" />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import "./StudentHistory.css";
 import { useEffect, useState } from "react";
 import { getStudentHistory } from "../../services/StudentApi";
+import { SkeletonList } from "../../components/Skeleton";
 
 function StudentHistory() {
   const [chats, setChats] = useState([]);
@@ -25,7 +26,7 @@ function StudentHistory() {
   if (loading)
     return (
       <div className="history-page">
-        <h2>Loading History...</h2>
+        <SkeletonList count={3} lines={2} label="Loading history" />
       </div>
     );
 

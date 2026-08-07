@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 
 import ErrorBoundary from "./components/ErrorBoundary";
+import RequireAuth from "./components/RequireAuth";
 import PageLoader from "./components/PageLoader";
 import Landing from "./pages/Landing";
 
@@ -51,7 +52,9 @@ const ConsultationHistory = lazy(
   () => import("./pages/consultation/ConsultationHistory"),
 );
 
-const GovernmentLogin = lazy(() => import("./pages/government/GovernmentLogin"));
+const GovernmentLogin = lazy(
+  () => import("./pages/government/GovernmentLogin"),
+);
 const GovernmentDashboard = lazy(
   () => import("./pages/government/GovernmentDashboard"),
 );
@@ -87,68 +90,247 @@ function App() {
             <Routes location={location}>
               <Route path="/patient/login" element={<Login />} />
               <Route path="/patient/register" element={<PatientRegister />} />
-              <Route path="/patient/dashboard" element={<Dashboard />} />
-              <Route path="/patient/records" element={<MyRecords />} />
-              <Route path="/patient/profile" element={<Profile />} />
-              <Route path="/patient/qr" element={<PatientQR />} />
-              <Route path="/patient/ai-guide" element={<AiGuide />} />
+              <Route
+                path="/patient/dashboard"
+                element={
+                  <RequireAuth portal="patient">
+                    <Dashboard />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/patient/records"
+                element={
+                  <RequireAuth portal="patient">
+                    <MyRecords />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/patient/profile"
+                element={
+                  <RequireAuth portal="patient">
+                    <Profile />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/patient/qr"
+                element={
+                  <RequireAuth portal="patient">
+                    <PatientQR />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/patient/ai-guide"
+                element={
+                  <RequireAuth portal="patient">
+                    <AiGuide />
+                  </RequireAuth>
+                }
+              />
 
               <Route path="/doctor/login" element={<DoctorLogin />} />
               <Route path="/doctor/register" element={<DoctorRegister />} />
-              <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
-              <Route path="/doctor/profile" element={<DoctorProfile />} />
+              <Route
+                path="/doctor/dashboard"
+                element={
+                  <RequireAuth portal="doctor">
+                    <DoctorDashboard />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/doctor/profile"
+                element={
+                  <RequireAuth portal="doctor">
+                    <DoctorProfile />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="/doctor/edit-profile"
-                element={<EditDoctorProfile />}
+                element={
+                  <RequireAuth portal="doctor">
+                    <EditDoctorProfile />
+                  </RequireAuth>
+                }
               />
-              <Route path="/doctor/search" element={<SearchPatient />} />
-              <Route path="/doctor/patient/:uhid" element={<PatientDetails />} />
-              <Route path="/doctor/create-ehr/:uhid" element={<CreateEHR />} />
-              <Route path="/doctor/my-patients" element={<MyPatients />} />
+              <Route
+                path="/doctor/search"
+                element={
+                  <RequireAuth portal="doctor">
+                    <SearchPatient />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/doctor/patient/:uhid"
+                element={
+                  <RequireAuth portal="doctor">
+                    <PatientDetails />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/doctor/create-ehr/:uhid"
+                element={
+                  <RequireAuth portal="doctor">
+                    <CreateEHR />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/doctor/my-patients"
+                element={
+                  <RequireAuth portal="doctor">
+                    <MyPatients />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="/doctor/patient-history/:uhid"
-                element={<PatientHistory />}
+                element={
+                  <RequireAuth portal="doctor">
+                    <PatientHistory />
+                  </RequireAuth>
+                }
               />
-              <Route path="/doctor/scan" element={<QRScanner />} />
-              <Route path="/doctor/workspace" element={<DoctorWorkspace />} />
+              <Route
+                path="/doctor/scan"
+                element={
+                  <RequireAuth portal="doctor">
+                    <QRScanner />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/doctor/workspace"
+                element={
+                  <RequireAuth portal="doctor">
+                    <DoctorWorkspace />
+                  </RequireAuth>
+                }
+              />
 
               <Route path="/student/login" element={<StudentLogin />} />
               <Route path="/student/register" element={<StudentRegister />} />
-              <Route path="/student/dashboard" element={<StudentDashboard />} />
-              <Route path="/student/history" element={<StudentHistory />} />
-              <Route path="/student/leaderboard" element={<Leaderboard />} />
-              <Route path="/student/profile" element={<StudentProfile />} />
+              <Route
+                path="/student/dashboard"
+                element={
+                  <RequireAuth portal="student">
+                    <StudentDashboard />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/student/history"
+                element={
+                  <RequireAuth portal="student">
+                    <StudentHistory />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/student/leaderboard"
+                element={
+                  <RequireAuth portal="student">
+                    <Leaderboard />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/student/profile"
+                element={
+                  <RequireAuth portal="student">
+                    <StudentProfile />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="/student/edit-profile"
-                element={<EditStudentProfile />}
+                element={
+                  <RequireAuth portal="student">
+                    <EditStudentProfile />
+                  </RequireAuth>
+                }
               />
-              <Route path="/student/chat-request" element={<ChatRequests />} />
-              <Route path="/student/video-request" element={<VideoRequests />} />
+              <Route
+                path="/student/chat-request"
+                element={
+                  <RequireAuth portal="student">
+                    <ChatRequests />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="/student/video-request"
+                element={
+                  <RequireAuth portal="student">
+                    <VideoRequests />
+                  </RequireAuth>
+                }
+              />
 
               <Route
                 path="/consultation/create"
-                element={<CreateConsultation />}
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <CreateConsultation />
+                  </RequireAuth>
+                }
               />
               <Route
                 path="/consultation/waiting"
-                element={<WaitingConsultation />}
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <WaitingConsultation />
+                  </RequireAuth>
+                }
               />
-              <Route path="/consultation/chat/:requestId" element={<ChatRoom />} />
+              <Route
+                path="/consultation/chat/:requestId"
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <ChatRoom />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="/consultation/video/:requestId"
-                element={<VideoRoom />}
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <VideoRoom />
+                  </RequireAuth>
+                }
               />
               <Route
                 path="/consultation/review/:consultationId"
-                element={<ReviewPopup />}
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <ReviewPopup />
+                  </RequireAuth>
+                }
               />
               <Route
                 path="/consultation/history"
-                element={<ConsultationHistory />}
+                element={
+                  <RequireAuth portal={["patient", "student"]}>
+                    <ConsultationHistory />
+                  </RequireAuth>
+                }
               />
 
               <Route path="/gov/login" element={<GovernmentLogin />} />
-              <Route path="/gov/dashboard" element={<GovernmentDashboard />} />
+              <Route
+                path="/gov/dashboard"
+                element={
+                  <RequireAuth portal="gov">
+                    <GovernmentDashboard />
+                  </RequireAuth>
+                }
+              />
               <Route
                 path="/government/login"
                 element={<Navigate to="/gov/login" replace />}

@@ -1,6 +1,7 @@
 import "./Leaderboard.css";
 import { useEffect, useState } from "react";
 import { getLeaderboard } from "../../services/StudentApi";
+import { SkeletonTable } from "../../components/Skeleton";
 
 function Leaderboard() {
   const [students, setStudents] = useState([]);
@@ -23,7 +24,8 @@ function Leaderboard() {
   if (loading)
     return (
       <div className="leaderboard">
-        <h2>Loading Leaderboard...</h2>
+        <h1>Top Performing Students</h1>
+        <SkeletonTable rows={6} />
       </div>
     );
 
