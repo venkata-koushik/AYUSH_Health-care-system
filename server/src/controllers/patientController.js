@@ -238,6 +238,7 @@ export const getMyProfile = async (req, res) => {
   }
 };
 
+// presently not using
 export const updateMyProfile = async (req, res) => {
   try {
     const patientId = req.user.patientId;

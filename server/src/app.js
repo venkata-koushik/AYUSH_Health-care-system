@@ -101,7 +101,7 @@ app.use("/api/qr", qrRoutes);
 app.use("/api/message", messageRoutes);
 
 app.get("/", (req, res) => {
-  res.send("AYUSH AI is runnig correct");
+  res.send("AYUSH API is running correctly");
 });
 
 // Public, database-independent endpoint for deployment health checks.

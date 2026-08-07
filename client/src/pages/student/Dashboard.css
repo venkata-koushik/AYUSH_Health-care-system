@@ -82,3 +82,14 @@
     margin-top:15px;
 }
 .student-notifications{margin:0 0 25px;padding:17px 20px;background:#fff;border:1px solid #e1ece9;border-radius:18px}.student-notifications>div{display:flex;justify-content:space-between}.student-notifications span{color:#528078;font-size:.85rem}.student-notifications a{display:flex;gap:8px;padding-top:11px;text-decoration:none;color:#315b61}.student-notifications a b{margin-left:auto}.student-notifications p{margin:11px 0 0;color:#6d8588;font-size:.92rem}.stat-card,.action-card{border:1px solid #e1ece9;box-shadow:0 8px 20px #123d3d0d}.stat-card{border-radius:18px}.action-card{border-radius:18px}.action-card:hover{background:#0f766e}@media(max-width:600px){.student-dashboard{padding:18px}.student-dashboard .dashboard-header{align-items:flex-start;gap:18px;flex-direction:column}.quick-actions{margin-top:36px}}
+
+/* Previously inherited from patient/Dashboard.css when all styles shipped in a
+   single bundle. Declared here so this page stands on its own now that CSS is
+   split per route. */
+.status-section {
+  margin-top: 25px;
+}
+.status-card {
+  border: 1px solid #e1ece9 !important;
+  box-shadow: 0 8px 20px #123d3d0d !important;
+}

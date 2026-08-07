@@ -259,3 +259,259 @@ select:focus {
     min-width: 620px;
   }
 }
+
+/* ------------------------------------------------------------------
+   Interaction polish. Colours above are untouched — this section only
+   adds motion, depth and focus feedback on top of the existing theme.
+   ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Keyboard users previously got the browser default outline, which the
+   input rules above overrode on some controls. This restores a visible,
+   on-brand focus ring everywhere without showing it on mouse clicks. */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid #9fdad0 !important;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+button,
+.accept-btn,
+.reject-btn,
+.ehr-btn,
+.edit-btn,
+.dashboard-card,
+.back-link,
+a {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+button:not(:disabled):hover,
+.accept-btn:hover,
+.ehr-btn:hover,
+.edit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(13, 118, 109, 0.22);
+  filter: saturate(1.05);
+}
+
+button:not(:disabled):active,
+.accept-btn:active,
+.ehr-btn:active,
+.edit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(13, 118, 109, 0.18);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Cards lift slightly so clickable tiles read as clickable. */
+.dashboard-card {
+  cursor: pointer;
+}
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 38px rgba(18, 63, 62, 0.14) !important;
+}
+
+.record-card,
+.history-card,
+.request-card,
+.patient-card {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.record-card:hover,
+.history-card:hover,
+.request-card:hover,
+.patient-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(18, 63, 62, 0.13) !important;
+}
+
+input,
+textarea,
+select {
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.back-link:hover {
+  opacity: 0.72;
+}
+
+/* Route transitions -------------------------------------------------- */
+
+/* Deliberately opacity-only: a transform here would make .route-view the
+   containing block for position:fixed children, which would re-anchor the
+   full-screen QR scanner overlay away from the viewport. */
+.route-view {
+  animation: ayush-fade-in 0.24s ease-out both;
+}
+
+@keyframes ayush-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Lazy-route loader --------------------------------------------------- */
+
+.page-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 60vh;
+  color: var(--ayush-teal);
+}
+
+.page-loader-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 3px solid #d8ece7;
+  border-top-color: var(--ayush-teal);
+  animation: ayush-spin 0.7s linear infinite;
+}
+
+.page-loader-text {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  opacity: 0.75;
+}
+
+@keyframes ayush-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error boundary ------------------------------------------------------ */
+
+.app-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 24px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.app-error-card {
+  width: min(460px, 100%);
+  padding: clamp(24px, 4vw, 36px);
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--ayush-line);
+  border-radius: 18px;
+  box-shadow: var(--ayush-shadow);
+}
+
+.app-error-card h1 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  color: var(--ayush-ink);
+}
+
+.app-error-card p {
+  margin: 0 0 22px;
+  color: #4d6f70;
+  line-height: 1.55;
+}
+
+.app-error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app-error-actions button {
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 11px;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(90deg, var(--ayush-teal), var(--ayush-blue));
+}
+
+.app-error-actions a {
+  padding: 11px 20px;
+  border: 1px solid var(--ayush-line);
+  border-radius: 11px;
+  color: var(--ayush-teal);
+  text-decoration: none;
+}
+
+/* Scrolling ----------------------------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.chat-body,
+.leaderboard {
+  scrollbar-width: thin;
+  scrollbar-color: #b7d9d2 transparent;
+}
+
+.chat-body::-webkit-scrollbar,
+.leaderboard::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.chat-body::-webkit-scrollbar-thumb,
+.leaderboard::-webkit-scrollbar-thumb {
+  background: #b7d9d2;
+  border-radius: 999px;
+}
+
+/* Respect users who ask their system to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .route-view {
+    animation: none;
+  }
+  button:not(:disabled):hover,
+  .dashboard-card:hover,
+  .record-card:hover,
+  .history-card:hover,
+  .request-card:hover,
+  .patient-card:hover {
+    transform: none;
+  }
+}

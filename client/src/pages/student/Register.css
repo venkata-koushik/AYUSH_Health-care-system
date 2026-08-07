@@ -66,3 +66,14 @@
     color:#2563eb;
     text-decoration:none;
 }
+/* Previously inherited from student/EditProfile.css via the single CSS bundle. */
+.language-option {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+.language-option input {
+  width: auto !important;
+}
